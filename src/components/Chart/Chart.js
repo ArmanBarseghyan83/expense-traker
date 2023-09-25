@@ -8,18 +8,18 @@ const ExpensesChart = () => {
   const expensesList = useSelector((state) => state.expense.expensesList);
 
   const chartDataPoints = [
-    { label: "Jan", value: 0 },
-    { label: "Feb", value: 0 },
-    { label: "Mar", value: 0 },
-    { label: "Apr", value: 0 },
-    { label: "May", value: 0 },
-    { label: "Jun", value: 0 },
-    { label: "Jul", value: 0 },
-    { label: "Aug", value: 0 },
-    { label: "Sep", value: 0 },
-    { label: "Oct", value: 0 },
-    { label: "Nov", value: 0 },
-    { label: "Dec", value: 0 },
+    { label: "JAN", value: 0 },
+    { label: "FEB", value: 0 },
+    { label: "MAR", value: 0 },
+    { label: "APR", value: 0 },
+    { label: "MAY", value: 0 },
+    { label: "JUN", value: 0 },
+    { label: "JUL", value: 0 },
+    { label: "AUG", value: 0 },
+    { label: "SEP", value: 0 },
+    { label: "OCT", value: 0 },
+    { label: "NOV", value: 0 },
+    { label: "DEC", value: 0 },
   ];
 
   for (const expense of expensesList) {
@@ -33,12 +33,7 @@ const ExpensesChart = () => {
   return (
     <div className="chart">
       {chartDataPoints.map((dataPoint) => (
-        <ChartBar
-          key={dataPoint.label}
-          value={dataPoint.value}
-          maxValue={totalMaximum}
-          label={dataPoint.label}
-        />
+        <ChartBar key={dataPoint.label} value={dataPoint.value} maxValue={totalMaximum} label={dataPoint.label} />
       ))}
     </div>
   );

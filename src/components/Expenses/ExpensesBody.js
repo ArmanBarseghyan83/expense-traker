@@ -27,9 +27,8 @@ const ExpensesBody = () => {
         }
         dispatch(expenseActions.showExpenses({ list }));
       })
-      .catch((e) => {
-        setError("Something went wrong!");
-      });
+      .catch(() => setError("Something went wrong!"));
+
   }, [reload, dispatch, selectedYear]);
 
   const filterChangeHandler = (event) => {
@@ -50,9 +49,7 @@ const ExpensesBody = () => {
             </select>
           </div>
         </div>
-        <Chart />
-        {!error ? <Expenses /> : <p>{error}</p>}
-      </Card>
+        <Chart />{!error ? <Expenses /> : <p>{error}</p>}</Card>
     </div>
   );
 };

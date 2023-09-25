@@ -18,17 +18,13 @@ const ExpenseItem = (props) => {
     const confirm = window.confirm("Are you sure?");
 
     if (confirm) {
-      fetch(
-        `https://expenses-ce77c-default-rtdb.firebaseio.com/expenses/${id}.json`,
-        {
-          method: "DELETE",
-        }
+      fetch(`https://expenses-ce77c-default-rtdb.firebaseio.com/expenses/${id}.json`, {
+        method: "DELETE",
+      }
       )
         .then((res) => res.json())
         .then(() => dispatch(expenseActions.reload()))
-        .catch((e) => {
-          setError("Could not delete!");
-        });
+        .catch(() => setError("Could not delete!"));
     }
   };
 
@@ -46,10 +42,7 @@ const ExpenseItem = (props) => {
         <div>{error && error}</div>
         <div>
           <div className="expense-item-price">${props.amount}</div>
-          <button
-            className="expense-item-delete"
-            onClick={deleteHandler.bind(null, props.id)}
-          >
+          <button className="expense-item-delete" onClick={deleteHandler.bind(null, props.id)} >
             Delete
           </button>
         </div>
