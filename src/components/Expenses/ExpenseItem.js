@@ -14,6 +14,7 @@ const ExpenseItem = (props) => {
   const year = props.date.getFullYear();
   const [error, setError] = useState();
 
+  // Delete an expense by its id value
   const deleteHandler = (id) => {
     const confirm = window.confirm("Are you sure?");
 

@@ -22,11 +22,13 @@ const ExpensesChart = () => {
     { label: "DEC", value: 0 },
   ];
 
+  // Update chartDataPoints based on the state
   for (const expense of expensesList) {
     const expenseMonth = expense.date.getMonth();
     chartDataPoints[expenseMonth].value += expense.amount;
   }
 
+  // Calculate maximum expenses
   const dataPointValues = chartDataPoints.map((dataPoint) => dataPoint.value);
   const totalMaximum = Math.max(...dataPointValues);
 

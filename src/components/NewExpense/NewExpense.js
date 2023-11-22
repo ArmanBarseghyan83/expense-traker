@@ -10,6 +10,7 @@ const NewExpense = () => {
   const isAdding = useSelector((state) => state.expense.isAdding);
   const [error, setError] = useState();
 
+  // Save a new expense to the database.
   const saveExpenseDataHandler = (enteredExpenseData) => {
     fetch("https://expenses-ce77c-default-rtdb.firebaseio.com/expenses.json", {
       method: "POST",
